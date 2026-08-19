@@ -966,6 +966,42 @@ html:not([data-theme="dark"]) .art-light { display: block; }
 .follow-name { margin: 0 0 10px; font-family: var(--serif); font-size: 1.5rem; }
 .follow-copy p { margin: 0 0 8px; color: var(--ink-soft); }
 
+/* ---------- friends.html 友邻页 ---------- */
+.friend-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.friend-card {
+  display: flex; flex-direction: column; gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--bg-elev);
+  padding: 22px 22px 20px;
+  text-decoration: none;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.friend-card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: var(--shadow); }
+.friend-name { font-family: var(--serif); font-size: 1.15rem; line-height: 1.4; color: var(--ink); }
+.friend-desc { color: var(--ink-soft); font-size: 0.9rem; flex: 1; }
+.friend-host { font-size: 0.78rem; color: var(--ink-faint); letter-spacing: 0.05em; word-break: break-all; }
+.friend-empty {
+  max-width: 560px; margin: 0 auto; padding: 60px 28px;
+  border: 1px dashed var(--line-strong); border-radius: 16px;
+  text-align: center;
+}
+.friend-empty-mark {
+  display: inline-block; width: 52px; height: 52px; line-height: 52px;
+  border: 1px solid var(--line-strong); border-radius: 50%;
+  font-family: var(--serif); font-size: 1.4rem; color: var(--ink-faint);
+  margin-bottom: 18px;
+}
+.friend-empty h3 { font-family: var(--serif); font-size: 1.4rem; margin: 0 0 12px; }
+.friend-empty p { color: var(--ink-soft); margin: 0 0 24px; }
+.apply-copy { max-width: 480px; }
+.apply-copy h3 { font-family: var(--serif); font-size: 1.5rem; margin: 0 0 12px; }
+.apply-copy p { margin: 0 0 10px; color: var(--ink-soft); }
+.apply-copy .host { font-size: 0.85rem; color: var(--ink-faint); word-break: break-all; }
+@media (max-width: 860px) {
+  .friend-grid { grid-template-columns: 1fr; }
+}
+
 /* 响应式：轮播 + 二级页 */
 @media (max-width: 860px) {
   .carousel { height: 460px; }

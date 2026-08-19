@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.add('js');</script>
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem("fuyou-theme"); } catch (e) {}
+      if (!t) t = (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+  <title>友邻 · 蜉蝣</title>
+  <meta name="description" content="蜉蝣的友邻——海内存知己，天涯若比邻。朋友们的个人站点，欢迎交换链接。">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://fuyou-maths.github.io/friends.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="友邻 · 蜉蝣">
+  <meta property="og:description" content="海内存知己，天涯若比邻。朋友们的个人站点，欢迎交换链接。">
+  <meta property="og:url" content="https://fuyou-maths.github.io/friends.html">
+  <meta property="og:image" content="https://fuyou-maths.github.io/images/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="友邻 · 蜉蝣">
+  <meta name="twitter:description" content="海内存知己，天涯若比邻。朋友们的个人站点，欢迎交换链接。">
+  <meta name="twitter:image" content="https://fuyou-maths.github.io/images/og-cover.jpg">
+  <link rel="stylesheet" href="style.css?v=7">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="返回首页">
+        <span class="brand-mark" aria-hidden="true">蜉</span>
+        <span class="brand-text">蜉蝣</span>
+      </a>
+      <nav class="site-nav" id="siteNav" aria-label="主导航">
+        <a href="index.html#about">关于</a>
+        <a href="index.html#research">研究</a>
+        <a href="index.html#projects">项目</a>
+        <a href="essays.html">随笔</a>
+        <a href="friends.html" aria-current="page">友邻</a>
+        <a href="index.html#journey">行迹</a>
+        <a href="index.html#thoughts">我思</a>
+        <a href="index.html#contact">联系</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="切换深浅主题">
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+        </button>
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="打开菜单" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- 页头 -->
+    <section class="section page-hero">
+      <div class="container">
+        <p class="hero-kicker reveal">友邻 · 交换链接</p>
+        <h1 class="page-title reveal">友邻</h1>
+        <p class="page-sub reveal">海内存知己，天涯若比邻。朋友们的去处，都在这里。</p>
+      </div>
+    </section>
+
+    <!-- 友邻名录 -->
+    <section class="section" id="friends">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-index">01</span>
+          <h2 class="section-title">友邻名录</h2>
+          <p class="section-note">互换链接的朋友们</p>
+        </div>
+
+        <!-- 加友邻：取消下面的 friend-grid 注释，往里复制 friend-card 并改站名/介绍/链接/域名；
+             有了第一个友邻后，把 friend-empty 空状态整块删除 -->
+        <!--
+        <div class="friend-grid">
+          <a class="friend-card" href="https://example.com" target="_blank" rel="noreferrer">
+            <span class="friend-name">某某的小站</span>
+            <span class="friend-desc">一句话介绍这个站。</span>
+            <span class="friend-host">example.com</span>
+          </a>
+        </div>
+        -->
+
+        <div class="friend-empty reveal">
+          <span class="friend-empty-mark" aria-hidden="true">蜉</span>
+          <h3>虚位以待</h3>
+          <p>这里还空着。想交换友邻，往下看申请方式。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 申请友邻 -->
+    <section class="section section-alt" id="apply">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-index">02</span>
+          <h2 class="section-title">申请友邻</h2>
+        </div>
+        <div class="follow-grid">
+          <div class="apply-copy reveal">
+            <h3>一封邮件就够</h3>
+            <p>写上你的站名、链接和一句话介绍发给我，我会在友邻名录里给你留一个位置；如果你愿意，也请把蜉蝣主页挂上。</p>
+            <p>蜉蝣 · 寄蜉蝣于天地，渺沧海之一粟</p>
+            <p class="host">https://fuyou-maths.github.io/</p>
+          </div>
+          <div class="reveal">
+            <a class="btn btn-primary" href="mailto:fuyou_maths@163.com?subject=友邻申请">邮件我 →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-poem">蜉蝣之羽，衣裳楚楚。</p>
+      <p>© 2026 蜉蝣 · <a href="index.html">返回首页</a></p>
+    </div>
+  </footer>
+
+  <script src="main.js?v=2"></script>
+</body>
+</html>
