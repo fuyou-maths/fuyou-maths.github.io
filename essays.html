@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.add('js');</script>
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem("fuyou-theme"); } catch (e) {}
+      if (!t) t = (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+  <title>随笔 · 蜉蝣</title>
+  <meta name="description" content="蜉蝣的随笔与读书——一些零散的思考，发布在公众号「蜉蝣览天地」。">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css?v=6">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="返回首页">
+        <span class="brand-mark" aria-hidden="true">蜉</span>
+        <span class="brand-text">蜉蝣</span>
+      </a>
+      <nav class="site-nav" id="siteNav" aria-label="主导航">
+        <a href="index.html#about">关于</a>
+        <a href="index.html#research">研究</a>
+        <a href="index.html#projects">项目</a>
+        <a href="essays.html" aria-current="page">随笔</a>
+        <a href="index.html#journey">行迹</a>
+        <a href="index.html#thoughts">我思</a>
+        <a href="index.html#contact">联系</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="切换深浅主题">
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+        </button>
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="打开菜单" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- 页头 -->
+    <section class="section page-hero">
+      <div class="container hero-split">
+        <div class="hero-split-copy">
+          <p class="hero-kicker reveal">随笔 · 精选文章</p>
+          <h1 class="page-title reveal">蜉蝣览天地</h1>
+          <p class="page-sub reveal">一些零散的思考，发布在公众号「蜉蝣览天地」。</p>
+        </div>
+        <div class="page-art reveal" aria-hidden="true">
+          <img class="art-img art-dark" src="images/essays-art-dark.jpg?v=4" alt="水墨山水（深色版）" loading="lazy">
+          <img class="art-img art-light" src="images/essays-art-light.jpg?v=4" alt="水墨山水（浅色版）" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- 精选文章 -->
+    <section class="section" id="articles">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-index">01</span>
+          <h2 class="section-title">精选文章</h2>
+          <p class="section-note">点卡片跳转原文</p>
+        </div>
+        <div class="essay-grid">
+          <a class="essay-card" href="https://mp.weixin.qq.com/s/Ez1FWPcyvqh3vCW3M9tfJw" target="_blank" rel="noreferrer">
+            <img class="card-cover" src="images/articles/01.jpg" alt="CMC 经验：我与数学竞赛" loading="lazy">
+            <div class="card-body"><h3 class="essay-title">CMC 经验：我与数学竞赛</h3><p class="essay-desc">全国大学生数学竞赛的经验与心得</p></div>
+          </a>
+          <a class="essay-card" href="https://mp.weixin.qq.com/s/fVxMfMkRmyu4GVUIA5OA1g" target="_blank" rel="noreferrer">
+            <img class="card-cover" src="images/articles/02.jpg" alt="DeepSeek 给出了我没敢想的答案" loading="lazy">
+            <div class="card-body"><h3 class="essay-title">DeepSeek 给出了我没敢想的答案</h3><p class="essay-desc">从一道数列题，体验 DeepSeek 的思考</p></div>
+          </a>
+          <a class="essay-card" href="https://mp.weixin.qq.com/s/21O_0El8mvvddW1tWq52Kw" target="_blank" rel="noreferrer">
+            <img class="card-cover" src="images/articles/03.jpg" alt="人工智能时代，什么才是有用的？" loading="lazy">
+            <div class="card-body"><h3 class="essay-title">人工智能时代，什么才是有用的？</h3><p class="essay-desc">AI 时代的一点思考</p></div>
+          </a>
+          <a class="essay-card" href="https://mp.weixin.qq.com/s/PJYU2CsKJSzoRCmfUsSwLQ" target="_blank" rel="noreferrer">
+            <img class="card-cover" src="images/articles/04.jpg" alt="人工智能如何参与学习" loading="lazy">
+            <div class="card-body"><h3 class="essay-title">人工智能如何参与学习</h3><p class="essay-desc">AI 系列第二篇</p></div>
+          </a>
+          <a class="essay-card" href="https://mp.weixin.qq.com/s/N4sIGrk4uicWSzTanKrCXg" target="_blank" rel="noreferrer">
+            <img class="card-cover" src="images/articles/05.jpg" alt="一道高数选做题的思考" loading="lazy">
+            <div class="card-body"><h3 class="essay-title">一道高数选做题的思考</h3><p class="essay-desc">关于 2025 管院大联考选做 2</p></div>
+          </a>
+          <a class="essay-card" href="https://mp.weixin.qq.com/s/1hrprFrFGttrcX74yhHbVA" target="_blank" rel="noreferrer">
+            <img class="card-cover" src="images/articles/06.jpg" alt="「1+1&gt;2」还是「1&lt;2」？" loading="lazy">
+            <div class="card-body"><h3 class="essay-title">「1+1&gt;2」还是「1&lt;2」？</h3><p class="essay-desc">米格二五效应、短板与长板</p></div>
+          </a>
+          <a class="essay-card" href="https://mp.weixin.qq.com/s/7w0hp6wQyzd9gX0wEU0uUw" target="_blank" rel="noreferrer">
+            <img class="card-cover" src="images/articles/07.jpg" alt="诗歌 · 赠离别" loading="lazy">
+            <div class="card-body"><h3 class="essay-title">诗歌 · 赠离别</h3><p class="essay-desc">一首写给离别的诗</p></div>
+          </a>
+          <a class="essay-card" href="https://mp.weixin.qq.com/s/pl6sJ8FBajx8Ben4pUxj4g" target="_blank" rel="noreferrer">
+            <img class="card-cover" src="images/articles/08.jpg" alt="数学学习①：正视与克服畏难" loading="lazy">
+            <div class="card-body"><h3 class="essay-title">数学学习①：正视与克服畏难</h3><p class="essay-desc">浅谈数学学习经验</p></div>
+          </a>
+          <a class="essay-card" href="https://mp.weixin.qq.com/s/3tYZ3mXCQ9n63Npo-JLC4w" target="_blank" rel="noreferrer">
+            <img class="card-cover" src="images/articles/09.jpg" alt="数学学习②：逻辑与严谨（上）" loading="lazy">
+            <div class="card-body"><h3 class="essay-title">数学学习②：逻辑与严谨（上）</h3><p class="essay-desc">浅谈数学学习经验</p></div>
+          </a>
+          <a class="essay-card" href="https://mp.weixin.qq.com/s/yEHDUMdc-eI5a_pBjSJesg" target="_blank" rel="noreferrer">
+            <img class="card-cover" src="images/articles/10.jpg" alt="数学学习②：逻辑与严谨（下）" loading="lazy">
+            <div class="card-body"><h3 class="essay-title">数学学习②：逻辑与严谨（下）</h3><p class="essay-desc">浅谈数学学习经验</p></div>
+          </a>
+          <a class="essay-card" href="https://mp.weixin.qq.com/s/P9t2jtJs8WMGybjs4Y4sVg" target="_blank" rel="noreferrer">
+            <img class="card-cover" src="images/articles/11.jpg" alt="数学学习③：抽象与寻根" loading="lazy">
+            <div class="card-body"><h3 class="essay-title">数学学习③：抽象与寻根</h3><p class="essay-desc">浅谈数学学习经验</p></div>
+          </a>
+          <a class="essay-card" href="https://mp.weixin.qq.com/s/WF03mkgNiK-ULWTeGfxtlg" target="_blank" rel="noreferrer">
+            <img class="card-cover" src="images/articles/12.jpg" alt="数学学习④：演绎·归纳·反演" loading="lazy">
+            <div class="card-body"><h3 class="essay-title">数学学习④：演绎·归纳·反演</h3><p class="essay-desc">浅谈数学学习经验</p></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 关注公众号 -->
+    <section class="section section-alt" id="follow">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-index">02</span>
+          <h2 class="section-title">关注公众号</h2>
+        </div>
+        <div class="follow-grid">
+          <div class="qr-frame reveal">
+            <img class="qr-img" src="images/qrcode.jpg" alt="蜉蝣览天地 公众号二维码" width="258" height="258">
+          </div>
+          <div class="follow-copy reveal">
+            <h3 class="follow-name">蜉蝣览天地</h3>
+            <p>用微信扫一扫二维码，或在公众号搜索「蜉蝣览天地」关注。</p>
+            <p>更多随笔、读书与思考，都会先在这里发布。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-poem">蜉蝣之羽，衣裳楚楚。</p>
+      <p>© 2026 蜉蝣 · <a href="index.html">返回首页</a></p>
+    </div>
+  </footer>
+
+  <script src="main.js?v=2"></script>
+</body>
+</html>

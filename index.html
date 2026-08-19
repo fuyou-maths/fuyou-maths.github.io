@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.classList.add('js');</script>
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem("fuyou-theme"); } catch (e) {}
+      if (!t) t = (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+  <title>蜉蝣 · 个人主页</title>
+  <meta name="description" content="蜉蝣 —— 寄蜉蝣于天地，渺沧海之一粟。以数学为根，观天地、察人事、问计算，一个在当下向光求索的人。">
+  <meta name="author" content="蜉蝣">
+  <link rel="canonical" href="https://fuyou-maths.github.io/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="蜉蝣 · 个人主页">
+  <meta property="og:description" content="寄蜉蝣于天地，渺沧海之一粟 · 以数学为根，观天地、察人事、问计算">
+  <meta property="og:url" content="https://fuyou-maths.github.io/">
+  <link rel="stylesheet" href="style.css?v=6">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="返回顶部">
+        <span class="brand-mark" aria-hidden="true">蜉</span>
+        <span class="brand-text">蜉蝣</span>
+      </a>
+
+      <nav class="site-nav" id="siteNav" aria-label="主导航">
+        <a href="#about">关于</a>
+        <a href="#research">研究</a>
+        <a href="#projects">项目</a>
+        <a href="#essays">随笔</a>
+        <a href="#journey">行迹</a>
+        <a href="#thoughts">我思</a>
+        <a href="#contact">联系</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="切换深浅主题">
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+        </button>
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="打开菜单" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <canvas class="fireflies" id="fireflies" aria-hidden="true"></canvas>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="hero-kicker reveal">北京科技大学 · 金融工程 × 数学与应用数学</p>
+          <h1 class="hero-name reveal">蜉蝣</h1>
+          <p class="hero-sub reveal">寄蜉蝣于天地，渺沧海之一粟</p>
+          <p class="hero-poem reveal">蜉蝣之羽，衣裳楚楚。朝生暮死，向光而行。</p>
+          <div class="hero-actions reveal">
+            <a class="btn btn-primary" href="#projects">看我的项目</a>
+            <a class="btn btn-ghost" href="#essays">读我的随笔</a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" aria-hidden="true">
+          <svg class="mayfly" viewBox="0 0 200 240" fill="none">
+            <ellipse class="wing" cx="72" cy="70" rx="50" ry="15" transform="rotate(-30 72 70)"/>
+            <ellipse class="wing" cx="128" cy="70" rx="50" ry="15" transform="rotate(30 128 70)"/>
+            <ellipse class="wing" cx="78" cy="92" rx="41" ry="12" transform="rotate(-13 78 92)"/>
+            <ellipse class="wing" cx="122" cy="92" rx="41" ry="12" transform="rotate(13 122 92)"/>
+            <path class="vein" d="M78 54 54 44"/>
+            <path class="vein" d="M86 68 68 82"/>
+            <path class="vein" d="M122 54 146 44"/>
+            <path class="vein" d="M114 68 132 82"/>
+            <circle class="head" cx="100" cy="28" r="6"/>
+            <path class="body" d="M100 34 C 101 70 99 105 100 150"/>
+            <path class="tail" d="M100 150 C 95 180 92 205 88 216"/>
+            <path class="tail" d="M100 150 C 100 185 100 210 100 222"/>
+            <path class="tail" d="M100 150 C 105 180 108 205 112 216"/>
+          </svg>
+          <div class="hero-now">
+            <span class="now-label">此刻</span>
+            <span class="now-time" id="nowTime">--:--:--</span>
+            <span class="now-note">蜉蝣于天地，沧海之一粟</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll" aria-hidden="true">
+        <span>向下</span>
+        <i></i>
+      </div>
+    </section>
+
+    <!-- ============ 01 关于 ============ -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-index">01</span>
+          <h2 class="section-title">关于</h2>
+        </div>
+        <div class="about-grid">
+          <p class="about-lead reveal">我是蜉蝣——<em>寄蜉蝣于天地，渺沧海之一粟</em>。</p>
+          <div class="about-body reveal">
+            <p>北京科技大学金融工程专业在读，辅修数学与应用数学双学位。以数学为根，向四方求索——一边是市场、风险与定价，一边是公理、证明与模型；再往外，是人文社科的辽阔，与计算机、人工智能的疆界。</p>
+            <p>朝生暮死，故不忧远方，只问当下。蜉蝣于天地之间，渺小如沧海一粟，却从不停止向光飞行。</p>
+          </div>
+        </div>
+
+        <div class="field-strip reveal">
+          <span class="field-label">我的版图</span>
+          <ul class="chip-list">
+            <li>数学</li><li>人工智能</li><li>经济学</li><li>金融</li><li>哲学</li>
+          </ul>
+        </div>
+
+        <ul class="fact-strip reveal">
+          <li><span>主修</span>金融工程</li>
+          <li><span>双学位</span>数学与应用数学</li>
+          <li><span>年级</span>准大四</li>
+          <li><span>坐标</span>中国 · 北京</li>
+        </ul>
+
+        <div class="now-lines reveal">
+          <p><span class="field-label">生活</span>爱打羽毛球、乒乓球，也打篮球、偶尔跑步；象棋、国际象棋、军棋、斗兽棋、五子棋、飞行棋、跳棋都会一点，围棋略懂皮毛。归根到底，这些和数学、人文社科一样，都是在养一份「底色」——逻辑的底色，让精神丰满而充实。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 02 研究 ============ -->
+    <section class="section section-alt" id="research">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-index">02</span>
+          <h2 class="section-title">研究</h2>
+          <p class="section-note">论文 · 科研</p>
+        </div>
+        <p class="section-lead reveal">研究内容正在整理中——论文、大作业、建模作品整理好后会陆续放上来。</p>
+
+        <div class="research-empty reveal">
+          <p>暂时还没有可展示的研究成果，整理好后第一时间更新到这里。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 03 项目 ============ -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-index">03</span>
+          <h2 class="section-title">项目</h2>
+          <p class="section-note">进行中 · 工作流</p>
+        </div>
+        <p class="section-lead reveal">一些动手做的小项目——目前多为本地 AI 工作流（需 Claude Code 运行），公开 Demo 正在准备中，先看简介。</p>
+
+        <div class="project-grid">
+          <article class="project-card reveal">
+            <div class="project-cover" style="--pc: rgba(230, 185, 106, 0.34);">
+              <span class="project-glyph" aria-hidden="true">学</span>
+              <span class="project-status">进行中</span>
+            </div>
+            <div class="card-body">
+              <h3 class="project-title">AI 辅助教材学习流水线</h3>
+              <p class="project-tags">Python · OCR · LLM · 知识图谱</p>
+              <p class="project-desc">把整本教材变成可学习产物的七阶段流水线：OCR 解析原文 → 章节分解 → AI 生成讲解笔记 → 代码验证 → PDF 渲染 → 思维导图 → 知识图谱。已完整跑通《R 语言》（12 章 66 节）与《金融风险管理》（29 章 197 节）两本教材，产出带图、带例、带代码验证的中文精读笔记；指定任意教材即可继续扩展。</p>
+            </div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-cover" style="--pc: rgba(176, 58, 46, 0.30);">
+              <span class="project-glyph" aria-hidden="true">卷</span>
+              <span class="project-status">进行中</span>
+            </div>
+            <div class="card-body">
+              <h3 class="project-title">AI 试卷命制系统</h3>
+              <p class="project-tags">Python · LLM · LaTeX</p>
+              <p class="project-desc">面向教学的 AI 出卷工作流：从教材 / 材料 PDF 自动提取知识点，按学科模板生成题目与答案解析，LaTeX（xelatex + ctex）排版输出可直接使用的试卷 PDF。支持人工校验修正、按学科沉淀题库并复用；OCR 采用 PyMuPDF → MinerU → PaddleOCR 三层回退，公式图表多的教材也能稳定解析。</p>
+            </div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-cover" style="--pc: rgba(116, 192, 214, 0.30);">
+              <span class="project-glyph" aria-hidden="true">演</span>
+              <span class="project-status">进行中</span>
+            </div>
+            <div class="card-body">
+              <h3 class="project-title">Claude Code 版 PPT 工作流</h3>
+              <p class="project-tags">Claude Code · pandoc · MindShow</p>
+              <p class="project-desc">一套「说需求就出 PPT」的工作流：先确认场景与受众，再生成大纲与 Markdown，最后出图迭代。含公式的课件走 pandoc 渲染，通用演示走 MindShow / AiPPT，把一次 PPT 制作从几小时压缩到十几分钟；改稿也只需改文字，重出即可。</p>
+            </div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-cover" style="--pc: rgba(96, 150, 200, 0.30);">
+              <span class="project-glyph" aria-hidden="true">潮</span>
+              <span class="project-status">接近完成</span>
+            </div>
+            <div class="card-body">
+              <h3 class="project-title">巨潮 A 股定期报告批量下载器</h3>
+              <p class="project-tags">Python · 爬虫 · 并发下载</p>
+              <p class="project-desc">覆盖沪深北全市场上市公司的年报 / 半年报批量下载工具：按披露月份智能过滤无效请求，数据量过大时自动二分拆分日期区间，断点续传 + 原子写入防损坏，多线程并发下载，修订版自动去重，并输出覆盖率报告便于查漏。适合课程协作 / 课题组按「年份 × 类型」分工后合并。</p>
+            </div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-cover" style="--pc: rgba(130, 170, 120, 0.30);">
+              <span class="project-glyph" aria-hidden="true">记</span>
+              <span class="project-status">进行中</span>
+            </div>
+            <div class="card-body">
+              <h3 class="project-title">教材笔记标准化整理流水线</h3>
+              <p class="project-tags">MinerU · 排版标准化</p>
+              <p class="project-desc">把杂乱的教材扫描件 / PDF 变成排版统一、可复用的笔记：MinerU 解析出 docx / markdown / LaTeX 三种产物，再按参考排版规范整理润色。已处理《解读中国经济》《马克思主义基本原理》《马克思主义政治经济学》，目标是让每一本书的笔记都长一个样、好查好引用。</p>
+            </div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-cover" style="--pc: rgba(150, 130, 190, 0.30);">
+              <span class="project-glyph" aria-hidden="true">页</span>
+              <span class="project-status">持续维护</span>
+            </div>
+            <div class="card-body">
+              <h3 class="project-title">蜉蝣主页（本站）</h3>
+              <p class="project-tags">HTML · CSS · JS</p>
+              <p class="project-desc">你现在看到的这个页面：纯 HTML / CSS / JS 的单页个人主页，无后端、无框架，直接部署在 GitHub Pages。从版图到行迹都在这里迭代，它本身就是我在做的项目之一。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 04 随笔 ============ -->
+    <section class="section section-alt" id="essays">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-index">04</span>
+          <h2 class="section-title">随笔</h2>
+          <p class="section-note">思考 · 读书</p>
+        </div>
+        <p class="section-lead reveal">一些零散的思考，完整内容发布在公众号「蜉蝣览天地」。</p>
+
+        <!-- 精选文章 · coverflow 轮播 -->
+        <div class="carousel reveal" id="essayCarousel">
+          <div class="carousel-track">
+            <article class="carousel-card">
+              <a href="https://mp.weixin.qq.com/s/fVxMfMkRmyu4GVUIA5OA1g" target="_blank" rel="noreferrer">
+                <img class="card-cover" src="images/articles/02.jpg" alt="DeepSeek 给出了我没敢想的答案" loading="lazy">
+                <div class="card-body"><h3 class="cc-title">DeepSeek 给出了我没敢想的答案</h3><p class="cc-desc">从一道数列题，体验 DeepSeek 的思考</p></div>
+              </a>
+            </article>
+            <article class="carousel-card">
+              <a href="https://mp.weixin.qq.com/s/21O_0El8mvvddW1tWq52Kw" target="_blank" rel="noreferrer">
+                <img class="card-cover" src="images/articles/03.jpg" alt="人工智能时代，什么才是有用的？" loading="lazy">
+                <div class="card-body"><h3 class="cc-title">人工智能时代，什么才是有用的？</h3><p class="cc-desc">AI 时代的一点思考</p></div>
+              </a>
+            </article>
+            <article class="carousel-card">
+              <a href="https://mp.weixin.qq.com/s/PJYU2CsKJSzoRCmfUsSwLQ" target="_blank" rel="noreferrer">
+                <img class="card-cover" src="images/articles/04.jpg" alt="人工智能如何参与学习" loading="lazy">
+                <div class="card-body"><h3 class="cc-title">人工智能如何参与学习</h3><p class="cc-desc">AI 系列第二篇</p></div>
+              </a>
+            </article>
+            <article class="carousel-card">
+              <a href="https://mp.weixin.qq.com/s/Ez1FWPcyvqh3vCW3M9tfJw" target="_blank" rel="noreferrer">
+                <img class="card-cover" src="images/articles/01.jpg" alt="CMC 经验：我与数学竞赛" loading="lazy">
+                <div class="card-body"><h3 class="cc-title">CMC 经验：我与数学竞赛</h3><p class="cc-desc">全国大学生数学竞赛的经验与心得</p></div>
+              </a>
+            </article>
+            <article class="carousel-card">
+              <a href="https://mp.weixin.qq.com/s/1hrprFrFGttrcX74yhHbVA" target="_blank" rel="noreferrer">
+                <img class="card-cover" src="images/articles/06.jpg" alt="「1+1&gt;2」还是「1&lt;2」？" loading="lazy">
+                <div class="card-body"><h3 class="cc-title">「1+1&gt;2」还是「1&lt;2」？</h3><p class="cc-desc">米格二五效应、短板与长板</p></div>
+              </a>
+            </article>
+            <article class="carousel-card">
+              <a href="https://mp.weixin.qq.com/s/7w0hp6wQyzd9gX0wEU0uUw" target="_blank" rel="noreferrer">
+                <img class="card-cover" src="images/articles/07.jpg" alt="诗歌 · 赠离别" loading="lazy">
+                <div class="card-body"><h3 class="cc-title">诗歌 · 赠离别</h3><p class="cc-desc">一首写给离别的诗</p></div>
+              </a>
+            </article>
+            <article class="carousel-card">
+              <a href="https://mp.weixin.qq.com/s/pl6sJ8FBajx8Ben4pUxj4g" target="_blank" rel="noreferrer">
+                <img class="card-cover" src="images/articles/08.jpg" alt="数学学习①：正视与克服畏难" loading="lazy">
+                <div class="card-body"><h3 class="cc-title">数学学习①：正视与克服畏难</h3><p class="cc-desc">浅谈数学学习经验</p></div>
+              </a>
+            </article>
+            <article class="carousel-card">
+              <a href="https://mp.weixin.qq.com/s/P9t2jtJs8WMGybjs4Y4sVg" target="_blank" rel="noreferrer">
+                <img class="card-cover" src="images/articles/11.jpg" alt="数学学习③：抽象与寻根" loading="lazy">
+                <div class="card-body"><h3 class="cc-title">数学学习③：抽象与寻根</h3><p class="cc-desc">浅谈数学学习经验</p></div>
+              </a>
+            </article>
+            <article class="carousel-card">
+              <a href="https://mp.weixin.qq.com/s/WF03mkgNiK-ULWTeGfxtlg" target="_blank" rel="noreferrer">
+                <img class="card-cover" src="images/articles/12.jpg" alt="数学学习④：演绎·归纳·反演" loading="lazy">
+                <div class="card-body"><h3 class="cc-title">数学学习④：演绎·归纳·反演</h3><p class="cc-desc">浅谈数学学习经验</p></div>
+              </a>
+            </article>
+          </div>
+          <button class="carousel-btn prev" id="carouselPrev" type="button" aria-label="上一张">‹</button>
+          <button class="carousel-btn next" id="carouselNext" type="button" aria-label="下一张">›</button>
+        </div>
+        <div class="carousel-more reveal">
+          <a class="btn btn-ghost" href="essays.html">查看更多文章 →</a>
+        </div>
+
+        <!-- 读书 · 书单（暂缓上线：有书目后取消注释并填入内容）
+        <div class="journal-block reveal books-block">
+          <h3 class="journal-title">读书 · 书单</h3>
+          <p class="journal-desc">读过的书，留一句当时的想法。</p>
+          <ul class="book-list">
+            <li class="book-item">
+              <span class="book-title">书名</span>
+              <span class="book-author">作者</span>
+              <span class="book-note">一句话点评。</span>
+            </li>
+          </ul>
+        </div>
+        -->
+      </div>
+    </section>
+
+    <!-- ============ 05 行迹 ============ -->
+    <section class="section" id="journey">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-index">05</span>
+          <h2 class="section-title">行迹</h2>
+          <p class="section-note">一路走来 · 从近到远</p>
+        </div>
+        <p class="section-lead reveal">每一段经历，是一个角色、一段时间、一件在做的事。</p>
+
+        <ol class="timeline">
+          <!-- 学生工作（新 → 旧） -->
+          <li class="timeline-item reveal">
+            <div class="timeline-date">2026.07 – 至今</div>
+            <div class="timeline-body">
+              <h3>大数据2602班 小班主任 <span class="timeline-org">· 经济管理学院</span></h3>
+              <p>协助辅导员开展新生班级管理与引导工作，帮助同学们迅速适应大学环境和大学生活，及时完成从「高中生」到「大学生」的身份转换。</p>
+            </div>
+          </li>
+          <li class="timeline-item reveal">
+            <div class="timeline-date">2024.09 – 至今</div>
+            <div class="timeline-body">
+              <h3>团支书 <span class="timeline-org">· 金融232班</span></h3>
+              <p>负责班级团务工作，积极开展组织生活和推优入党，配合班长开展班级管理和班级建设。</p>
+            </div>
+          </li>
+          <li class="timeline-item reveal">
+            <div class="timeline-date">2024.03 – 至今</div>
+            <div class="timeline-body">
+              <h3>学业讲师团 <span class="timeline-org">· 经济管理学院</span></h3>
+              <span class="role-chain">讲师 → 团长</span>
+              <ul class="role-steps">
+                <li>
+                  <span class="role-time">2024.03 – 至今</span>
+                  <span class="role-name">讲师</span>
+                  <p class="role-desc">积极开展朋辈讲师业务，截止目前，共一对一辅导、一对多辅导讲授百余次，并讲授微积分、微观经济学习题课，参与并主持微积分模拟卷5次，制作电子讲义和电子笔记10余份。</p>
+                </li>
+                <li>
+                  <span class="role-time">2025.07 – 至今</span>
+                  <span class="role-name">团长</span>
+                  <p class="role-desc">参与学院学业和学风建设，主持学院学业讲师团的业务工作，优化讲师团的内部管理，正在尝试运用AI制作试卷生成器和电子笔记生成器。</p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="timeline-item reveal">
+            <div class="timeline-date">2024.03 – 2026.03</div>
+            <div class="timeline-body">
+              <h3>志愿服务指导中心 · 项目执行组组员 <span class="timeline-org">· 校团委</span></h3>
+              <p>主要参与部门的值班工作：为同学们进行工时的审核与添加，参与长期志愿服务项目调研2次，参与组织学校志愿服务活动1次。</p>
+            </div>
+          </li>
+          <li class="timeline-item reveal">
+            <div class="timeline-date">2023.10 – 2026.06</div>
+            <div class="timeline-body">
+              <h3>新闻宣传中心 <span class="timeline-org">· 经济管理学院</span></h3>
+              <span class="role-chain">三年 · 志愿者 → 部长 → 副主任</span>
+              <ul class="role-steps">
+                <li>
+                  <span class="role-time">2023.10 – 2024.07</span>
+                  <span class="role-name">推送运营部 · 志愿者</span>
+                  <p class="role-desc">学习并了解宣传的相关技能，初步尝试推送制作。</p>
+                </li>
+                <li>
+                  <span class="role-time">2024.07 – 2025.07</span>
+                  <span class="role-name">运营策划部 · 部长</span>
+                  <p class="role-desc">参与学院部分推送的制作和修改，初步培养同学的宣传技能。</p>
+                </li>
+                <li>
+                  <span class="role-time">2025.07 – 2026.06</span>
+                  <span class="role-name">运营策划部 · 学生副主任</span>
+                  <p class="role-desc">共同负责新闻稿上传、学院官方微信公众号的运营、学院推送的制作与审核，召开宣传技能培训会，培养同学的宣传技能：推送制作和新闻稿撰写，并配合学院团委开展各项具体工作。工作的一年间，部门共制作并发布推送300余篇，上传新闻稿60余篇，累计浏览量30万+。</p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="timeline-item reveal">
+            <div class="timeline-date">2023.09 – 2024.07</div>
+            <div class="timeline-body">
+              <h3>创新创业委员 <span class="timeline-org">· 工商2302班</span></h3>
+              <p>负责班级创新创业工作的转达，为同学们构建起创新创业相关知识理论的初认识，建立好校院班三级创赛通知的桥梁。</p>
+            </div>
+          </li>
+
+          <!-- 教育（从近到远，放在最末） -->
+          <li class="timeline-item reveal">
+            <div class="timeline-date">2024 – 2027</div>
+            <div class="timeline-body">
+              <h3>数学与应用数学（双学位）<span class="timeline-org">· 北京科技大学</span></h3>
+              <p>申请数学与应用数学的双学位，探索数学的理论之美和应用之美，补全公理、证明与模型的那一半，主要课程有微分几何、近世代数、复变函数等。</p>
+            </div>
+          </li>
+          <li class="timeline-item reveal">
+            <div class="timeline-date">2023 – 2027</div>
+            <div class="timeline-body">
+              <h3>金融工程（主修）<span class="timeline-org">· 北京科技大学</span></h3>
+              <p>从随机过程到衍生品定价，把「模型」与「市场」两套语言放进同一套训练，主要课程有金融工程学、金融市场、随机过程等。</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="awards reveal">
+          <h4>荣誉</h4>
+          <div class="awards-grid">
+            <div class="award-col">
+              <h5>竞赛</h5>
+              <ul class="award-list">
+                <li>全国大学生数学竞赛（决赛）· 国家一等奖</li>
+                <li>全国大学生数学竞赛（决赛）· 国家二等奖</li>
+                <li>北京市大学生数学竞赛 · 省级一等奖</li>
+                <li>全国部分地区大学生物理竞赛 · 省级一等奖</li>
+                <li>北京市节能节水低碳减排社会实践与科技竞赛 · 省级一等奖</li>
+                <li class="more-item">全国大学生市场调查与分析大赛 · 省级二等奖</li>
+                <li class="more-item">「挑战杯」首都大学生创业计划竞赛 · 省级三等奖</li>
+              </ul>
+              <button class="award-more-btn" type="button">查看更多（+2）</button>
+            </div>
+            <div class="award-col">
+              <h5>荣誉</h5>
+              <ul class="award-list">
+                <li>国家奖学金</li>
+                <li>经济管理学院「榜样经管」荣誉称号</li>
+                <li>北京科技大学「金粉笔」金牌讲师</li>
+                <li>北京科技大学优秀三好学生</li>
+                <li>北京科技大学优秀学生干部</li>
+                <li class="more-item">经济管理学院十佳志愿者</li>
+                <li class="more-item">新生人民二等奖学金</li>
+                <li class="more-item">暑期社会实践金奖团队</li>
+                <li class="more-item">寒假招生宣传实践活动先进个人</li>
+                <li class="more-item">寒假招生宣传实践活动金奖团队</li>
+              </ul>
+              <button class="award-more-btn" type="button">查看更多（+5）</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 06 我思 ============ -->
+    <section class="section section-alt" id="thoughts">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-index">06</span>
+          <h2 class="section-title">我思</h2>
+          <p class="section-note">自述 · 信条</p>
+        </div>
+        <div class="credo-grid">
+          <div class="credo reveal">
+            <p>蜉蝣朝生暮死，却从不停止向光飞行。我以数学为根，在金融、人文与计算之间求索，不为别的，只为在噪声与波动里，辨认一点点可靠的信号。</p>
+            <p>宏大构想是远星，脚下的每一步才是路。修身是一生的修行，兼容并蓄，向光而行。</p>
+            <p class="credo-sign">—— 蜉蝣</p>
+          </div>
+          <div class="credo-art reveal" aria-hidden="true">
+            <img class="calli-img calli-dark" src="images/calli-dark.jpg" alt="书法（深色版）" loading="lazy">
+            <img class="calli-img calli-light" src="images/calli-light.jpg" alt="书法（浅色版）" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 07 联系 ============ -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-index">07</span>
+          <h2 class="section-title">联系</h2>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-copy reveal">
+            <p class="contact-lead">欢迎交流：经济金融、数学应用、人工智能，或任何有意思的问题。</p>
+            <p class="contact-sub">把一封邮件、一条消息，投向某个确定的方向。</p>
+          </div>
+          <ul class="contact-list reveal">
+            <li><span>邮箱</span><a href="mailto:fuyou_maths@163.com">fuyou_maths@163.com</a></li>
+            <li><span>GitHub</span><a href="https://github.com/fuyou-maths" target="_blank" rel="noreferrer">github.com/fuyou-maths</a></li>
+            <li><span>微信公众号</span><a href="essays.html#follow">蜉蝣览天地（扫码关注）</a></li>
+            <!-- 微信号（暂缓上线：确定要公开后取消注释并填入）
+            <li><span>微信</span><span class="muted">待补充</span></li>
+            -->
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-poem">蜉蝣之羽，衣裳楚楚。</p>
+      <p>© 2026 蜉蝣 · 寄蜉蝣于天地，渺沧海之一粟</p>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://fuyou-maths.github.io/#person",
+        "name": "蜉蝣",
+        "url": "https://fuyou-maths.github.io/",
+        "jobTitle": "金融工程专业学生",
+        "description": "寄蜉蝣于天地，渺沧海之一粟。以数学为根，观天地、察人事、问计算。北京科技大学金融工程专业在读，数学与应用数学双学位。",
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "北京科技大学" }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://fuyou-maths.github.io/#website",
+        "url": "https://fuyou-maths.github.io/",
+        "name": "蜉蝣 · 个人主页",
+        "inLanguage": "zh-CN"
+      }
+    ]
+  }
+  </script>
+
+  <script src="main.js?v=2"></script>
+</body>
+</html>
